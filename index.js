@@ -102,18 +102,18 @@ app.put("/lessons/:id", async (req, res) => {
 });
 
 // GET /search?q=term - search lessons
-app.get("/search", async (req, res) => {
-  try {
-    const q = req.query.q;
+// app.get("/search", async (req, res) => {
+//   try {
+//     const q = req.query.q;
 
-    const results = await lessonsCollection.find({
-      $or: [
-        { subject: { $regex: q, $options: "i" } },
-        { location: { $regex: q, $options: "i" } },
-        { price: { $regex: q, $options: "i" } },
-        { spaces: { $regex: q, $options: "i" } }
-      ]
-    }).toArray();
+//     const results = await lessonsCollection.find({
+//       $or: [
+//         { subject: { $regex: q, $options: "i" } },
+//         { location: { $regex: q, $options: "i" } },
+//         { price: { $regex: q, $options: "i" } },
+//         { spaces: { $regex: q, $options: "i" } }
+//       ]
+//     }).toArray();
 
     res.json(results);
 
