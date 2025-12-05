@@ -39,10 +39,10 @@ app.get("/", (req, res) => {
 });
 
 // GET /lessons (required)
-// app.get("/lessons", async (req, res) => {
-//   const lessons = await lessonsCollection.find().toArray();
-//   res.json(lessons);
-// });
+app.get("/lessons", async (req, res) => {
+  const lessons = await lessonsCollection.find().toArray();
+  res.json(lessons);
+});
 
 // POST /orders - create a new order
 app.post("/orders", async (req, res) => {
