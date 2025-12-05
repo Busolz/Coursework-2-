@@ -26,10 +26,10 @@ async function start() {
   ordersCollection = db.collection("order");
 
   // 2. Start Express server
-//   app.listen(process.env.PORT, () => {
-//     console.log(`Server running on port ${process.env.PORT}`);
-//   });
-// }
+  app.listen(process.env.PORT, () => {
+    console.log(`Server running on port ${process.env.PORT}`);
+  });
+}
 
 start();
 
