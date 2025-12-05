@@ -75,31 +75,31 @@ app.post("/orders", async (req, res) => {
 });
 
 // PUT /lessons/:id - update a lesson
-// app.put("/lessons/:id", async (req, res) => {
-//   try {
-//     const lessonId = req.params.id;
-//     const updatedData = req.body;
+app.put("/lessons/:id", async (req, res) => {
+  try {
+    const lessonId = req.params.id;
+    const updatedData = req.body;
 
-//     const result = await lessonsCollection.updateOne(
-//       { _id: new ObjectId(lessonId) },
-//       { $set: updatedData }
-//     );
+    const result = await lessonsCollection.updateOne(
+      { _id: new ObjectId(lessonId) },
+      { $set: updatedData }
+    );
 
-//     if (result.matchedCount === 0) {
-//       return res.status(404).json({ error: "Lesson not found" });
-//     }
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ error: "Lesson not found" });
+    }
 
-//     res.json({
-//       success: true,
-//       message: "Lesson updated",
-//       updated: updatedData
-//     });
+    res.json({
+      success: true,
+      message: "Lesson updated",
+      updated: updatedData
+    });
 
-//   } catch (error) {
-//     console.error("Error updating lesson:", error);
-//     res.status(500).json({ error: "Server error" });
-//   }
-// });
+  } catch (error) {
+    console.error("Error updating lesson:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 // GET /search?q=term - search lessons
 app.get("/search", async (req, res) => {
