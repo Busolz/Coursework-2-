@@ -45,34 +45,34 @@ app.get("/lessons", async (req, res) => {
 });
 
 // POST /orders - create a new order
-app.post("/orders", async (req, res) => {
-  try {
-    const { name, phone, lessons } = req.body;
+// app.post("/orders", async (req, res) => {
+//   try {
+//     const { name, phone, lessons } = req.body;
 
-    if (!name || !phone || !lessons || !Array.isArray(lessons)) {
-      return res.status(400).json({ error: "Invalid order data" });
-    }
+//     if (!name || !phone || !lessons || !Array.isArray(lessons)) {
+//       return res.status(400).json({ error: "Invalid order data" });
+//     }
 
-    const order = {
-      name,
-      phone,
-      lessons,
-      createdAt: new Date()
-    };
+//     const order = {
+//       name,
+//       phone,
+//       lessons,
+//       createdAt: new Date()
+//     };
 
-    const result = await ordersCollection.insertOne(order);
+//     const result = await ordersCollection.insertOne(order);
 
-    res.json({
-      success: true,
-      message: "Order placed successfully",
-      orderId: result.insertedId
-    });
+//     res.json({
+//       success: true,
+//       message: "Order placed successfully",
+//       orderId: result.insertedId
+//     });
 
-  } catch (error) {
-    console.error("Error saving order:", error);
-    res.status(500).json({ error: "Server error" });
-  }
-});
+//   } catch (error) {
+//     console.error("Error saving order:", error);
+//     res.status(500).json({ error: "Server error" });
+//   }
+// });
 
 // PUT /lessons/:id - update a lesson
 app.put("/lessons/:id", async (req, res) => {
